@@ -1,23 +1,23 @@
 {
   "files": {
-    "main.css": "/authorization/static/css/main.facf6b93.chunk.css",
-    "main.js": "/authorization/static/js/main.793e6da2.chunk.js",
-    "main.js.map": "/authorization/static/js/main.793e6da2.chunk.js.map",
-    "runtime-main.js": "/authorization/static/js/runtime-main.816ffe4d.js",
-    "runtime-main.js.map": "/authorization/static/js/runtime-main.816ffe4d.js.map",
-    "static/js/2.36a943fe.chunk.js": "/authorization/static/js/2.36a943fe.chunk.js",
-    "static/js/2.36a943fe.chunk.js.map": "/authorization/static/js/2.36a943fe.chunk.js.map",
-    "index.html": "/authorization/index.html",
-    "precache-manifest.79a63dd054383738dead09dbd2e26402.js": "/authorization/precache-manifest.79a63dd054383738dead09dbd2e26402.js",
-    "service-worker.js": "/authorization/service-worker.js",
-    "static/css/main.facf6b93.chunk.css.map": "/authorization/static/css/main.facf6b93.chunk.css.map",
-    "static/js/2.36a943fe.chunk.js.LICENSE.txt": "/authorization/static/js/2.36a943fe.chunk.js.LICENSE.txt",
-    "static/media/index.css": "/authorization/static/media/closeIcon.c2d0901f.svg"
+    "main.css": "/authorization-react/static/css/main.032ad5a4.chunk.css",
+    "main.js": "/authorization-react/static/js/main.bd4d96c8.chunk.js",
+    "main.js.map": "/authorization-react/static/js/main.bd4d96c8.chunk.js.map",
+    "runtime-main.js": "/authorization-react/static/js/runtime-main.a18c6ce5.js",
+    "runtime-main.js.map": "/authorization-react/static/js/runtime-main.a18c6ce5.js.map",
+    "static/js/2.36a943fe.chunk.js": "/authorization-react/static/js/2.36a943fe.chunk.js",
+    "static/js/2.36a943fe.chunk.js.map": "/authorization-react/static/js/2.36a943fe.chunk.js.map",
+    "index.html": "/authorization-react/index.html",
+    "precache-manifest.fc29b9f0f5d90c0a1172add47062032c.js": "/authorization-react/precache-manifest.fc29b9f0f5d90c0a1172add47062032c.js",
+    "service-worker.js": "/authorization-react/service-worker.js",
+    "static/css/main.032ad5a4.chunk.css.map": "/authorization-react/static/css/main.032ad5a4.chunk.css.map",
+    "static/js/2.36a943fe.chunk.js.LICENSE.txt": "/authorization-react/static/js/2.36a943fe.chunk.js.LICENSE.txt",
+    "static/media/index.css": "/authorization-react/static/media/closeIcon.c2d0901f.svg"
   },
   "entrypoints": [
-    "static/js/runtime-main.816ffe4d.js",
+    "static/js/runtime-main.a18c6ce5.js",
     "static/js/2.36a943fe.chunk.js",
-    "static/css/main.facf6b93.chunk.css",
-    "static/js/main.793e6da2.chunk.js"
+    "static/css/main.032ad5a4.chunk.css",
+    "static/js/main.bd4d96c8.chunk.js"
   ]
 }
