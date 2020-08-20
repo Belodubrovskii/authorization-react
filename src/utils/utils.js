@@ -1,6 +1,6 @@
 
 export const apiOptions = {
-  baseUrl: 'http://emphasoft-test-assignment.herokuapp.com',
+  baseUrl: 'https://emphasoft-test-assignment.herokuapp.com',
   headers: {
     'Content-Type': 'application/json',
     Accept: 'application/json',

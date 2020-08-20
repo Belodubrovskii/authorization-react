@@ -3,7 +3,7 @@ import PopupWithForm from './components/PopupWithForm'
 import {api} from './utils/api.js';
 import Header from './components/Header';
 import UsersList from './components/UsersList';
-import {Route, Switch, Redirect} from 'react-router-dom';
+import {HashRouter, Route, Switch, Redirect} from 'react-router-dom';
 
 function App() {
 
@@ -59,31 +59,33 @@ function App() {
 
   return (
     <>
-    {token ? <Redirect to="/users"/> : <Redirect to="/"/>}
-    <Switch>
-    {!token &&
-      <Route exact path="/">
-        <>
-        < Header handlePopupOnen={handlePopupOnen}/>
-        <PopupWithForm 
-          isOpen={isPopupOpen} 
-          onClose={handlePopupOnen} 
-          userChange={handleUserNameChange}
-          passwordChange={handlePasswordChange}
-          handleSubmit={authSubmit}
-          username={userNameValue}
-          password={passwordValue}
-          error={isError}
-        />  
-        </>
-      </Route> 
-    }
-    {token && 
-      <Route path="/users">
-        < UsersList username={username} token={token} logOut={logOut} />
-      </Route>
-    }
-    </Switch>
+    <HashRouter basename="/">
+      {token ? <Redirect to="/users"/> : <Redirect to="/"/>}
+      <Switch>
+      {!token &&
+        <Route exact path="/">
+          <>
+          < Header handlePopupOnen={handlePopupOnen}/>
+          <PopupWithForm 
+            isOpen={isPopupOpen} 
+            onClose={handlePopupOnen} 
+            userChange={handleUserNameChange}
+            passwordChange={handlePasswordChange}
+            handleSubmit={authSubmit}
+            username={userNameValue}
+            password={passwordValue}
+            error={isError}
+          />  
+          </>
+        </Route> 
+      }
+      {token && 
+        <Route path="/users">
+          < UsersList username={username} token={token} logOut={logOut} />
+        </Route>
+      }
+      </Switch>
+    </HashRouter>
     </>
   );
 }
