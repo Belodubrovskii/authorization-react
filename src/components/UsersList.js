@@ -5,9 +5,14 @@ import './UsersList.css';
 export default function UsersList (props) {
 
   const [usersList, setUsersList] = React.useState([]);
-  const [isFilterById, setFilterById] = React.useState(false);
-  const [isFilterByName, setFilterByName] = React.useState(false);
+  const [sortAscending, setSortAscending] = React.useState(false);
+  const [isSorted, setSorted] = React.useState(false);
   const [objList, setObjList] = React.useState([]);
+  const [value, setValue] = React.useState('');
+
+  function handleChange (evt) {
+    setValue(evt.target.value)
+  }
 
   React.useEffect(() => {
     api.users(props.token)
@@ -29,36 +34,25 @@ export default function UsersList (props) {
 
   React.useEffect(() => {
 
-    function sortById () {
- 
-      let filteredUsers = usersList.slice();
+    function filterByName () {
 
-      filteredUsers.sort((a, b) => {
-        return isFilterById ? a.key - b.key : b.key - a.key
+      const filteredUsers = objList.filter((item) => {
+
+        let name = item.name.toLowerCase();
+        let inputName = value.toLowerCase();
+
+        if (name.indexOf(inputName) === 0) {
+          return true
+        } else {
+          return false
+        }
       })
-      setUsersList(filteredUsers);
-    }
+      if (isSorted) {
+        filteredUsers.sort((a, b) => {
+          return sortAscending ? a.id - b.id : b.id - a.id
+        })
+      }
 
-    sortById();
-
-  },[isFilterById])
-
-
-  React.useEffect(() => {
-
-    function sortByName () {
-
-      let filteredUsers = objList.slice();
-
-      filteredUsers.sort((a, b) => {
-        let nameA = a.name.toLowerCase();
-        let nameB = b.name.toLowerCase();
-        if (nameA < nameB) 
-          return isFilterByName ? 1 : -1
-        if (nameA > nameB)
-          return isFilterByName ? -1 : 1
-        return 0 
-      })
       setUsersList(filteredUsers.map((user) => (
         <tr key={user.id}>
           <td className="user-name">{user.name}</td>
@@ -67,18 +61,31 @@ export default function UsersList (props) {
       )))
     }
 
-    sortByName();
+    filterByName();
 
-  },[isFilterByName])
+  },[value])
+
+  React.useEffect(() => {
+
+    function sortById () {
+      
+      let filteredUsers = usersList.slice();
+      filteredUsers.sort((a, b) => {
+        return sortAscending ? a.key - b.key : b.key - a.key
+      })
+      setUsersList(filteredUsers);
+    }
+
+    sortById();
+
+  },[sortAscending])
+
 
   function filterById () {
-    setFilterById(!isFilterById);
+    setSortAscending(!sortAscending);
+    setSorted(true);
   }
 
-  function filterByName () {
-    setFilterByName(!isFilterByName);
-  }
-  
   return (
     <>
      <h1 className="title">Welcome, {props.username}</h1>
@@ -87,7 +94,7 @@ export default function UsersList (props) {
         <tbody className="table">
           <tr>
             <td className="header-name">
-              <button onClick={filterByName} className="filter-button" type="button">Username</button>
+              <input className="unput-name" value={value} onChange={handleChange} placeholder="Username"></input>
             </td>
             <td className="header-id">
               <button onClick={filterById} className="filter-button" type="button">Id</button>
