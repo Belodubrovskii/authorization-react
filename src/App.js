@@ -1,25 +1,90 @@
 import React from 'react';
-import logo from './logo.svg';
-import './App.css';
+import PopupWithForm from './components/PopupWithForm'
+import {api} from './utils/api.js';
+import Header from './components/Header';
+import UsersList from './components/UsersList';
+import {Route, Switch, Redirect} from 'react-router-dom';
 
 function App() {
+
+  const [isPopupOpen, setPopupOpen] = React.useState(false);
+  const [userNameValue, setUserNameValue] = React.useState('');
+  const [passwordValue, setPassword] = React.useState('');
+  const [username, setUsername] = React.useState('');
+  const [token, setToken] = React.useState('');
+  const [isError, setError] = React.useState(false);
+
+  React.useEffect(() => {
+    setToken(localStorage.token);
+    setUsername(localStorage.username);
+  }, [])
+  
+  function logOut () {
+    setToken('');
+    localStorage.removeItem("token");
+    localStorage.removeItem("username");
+  }
+
+  function handlePopupOnen () {
+    setPopupOpen(!isPopupOpen);
+    setUserNameValue('');
+    setPassword('');
+    setError(false);
+  }
+
+  function handleUserNameChange (evt) {
+    setUserNameValue(evt.target.value)
+  }
+
+  function handlePasswordChange (evt) {
+    setPassword(evt.target.value)
+  }
+
+  function authSubmit (evt) {
+    evt.preventDefault();
+
+    api.login({username: userNameValue, password: passwordValue})
+      .then(res => {
+        setToken(res.token);
+        setPopupOpen(false);
+        setError(false)
+        localStorage.setItem("token", res.token)
+        localStorage.setItem("username", userNameValue);
+        setUsername(userNameValue);
+      })
+      .catch(() => setError(true));
+
+  }
+
+
   return (
-    <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
-    </div>
+    <>
+    {token ? <Redirect to="/users"/> : <Redirect to="/"/>}
+    <Switch>
+    {!token &&
+      <Route exact path="/">
+        <>
+        < Header handlePopupOnen={handlePopupOnen}/>
+        <PopupWithForm 
+          isOpen={isPopupOpen} 
+          onClose={handlePopupOnen} 
+          userChange={handleUserNameChange}
+          passwordChange={handlePasswordChange}
+          handleSubmit={authSubmit}
+          username={userNameValue}
+          password={passwordValue}
+          error={isError}
+        />  
+        </>
+      </Route> 
+    }
+    {token && 
+      <Route path="/users">
+        < UsersList username={username} token={token} logOut={logOut} />
+      </Route>
+    }
+    </Switch>
+    </>
   );
 }
 

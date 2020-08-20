@@ -1,0 +1,101 @@
+.filter-button {
+  background-color: #73A8AF;
+  width: 100%;
+  height: 35px;
+  font-size: 20px;
+  border: none;
+  cursor: pointer;
+  transition: background 0.2s;
+}
+
+.filter-button:hover {
+  background: rgba(255,255,255, 0.2)
+}
+
+.title {
+  overflow: hidden;
+  text-overflow: ellipsis;
+  margin: 25px 15px 15px 20px;
+}
+
+
+.table {
+  margin-left: 20px;
+  display: table;
+  width: 350px;
+  border: 0.8px solid grey; 
+  border-collapse: collapse;
+  table-layout: fixed;
+  border-radius: 2px;
+}
+
+td {
+  border-right: 1px dashed gray;
+}
+
+
+tr:nth-child(n+2):hover td {
+  background-color: #CCDFCC
+}
+
+tr:nth-child(odd) {
+  background-color: #f0f0f0;
+}
+
+tr:nth-child(1) {
+  background-color: #73A8AF;
+}
+
+.user-name {
+  font-size: 17px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  padding-left: 3px;
+  width: 70%;
+  padding: 5px;
+}
+
+.user-id {
+  text-align: right;
+  font-size: 17px;
+  padding: 5px;
+}
+
+.header-name {
+  width: 70%;
+  padding: 0;
+}
+
+.header-id {  
+  padding: 0;
+}
+
+.button-logout {
+  position: fixed;
+  top: 5px;
+  right: 5px;
+  padding: 0;
+  height: 20px;
+  width: 60px;
+  color: blue;
+  font-size: 14px;
+  border: none;
+  background: transparent;
+  transition: color 0.3s;
+  cursor: pointer;
+}
+
+.button-logout:hover {
+  color: rgb(3, 3, 24);
+}
+
+@media all and (max-width: 400px) {
+  .table {
+    margin: 0 auto;
+    width: 90%;
+  }
+
+  .title {
+    font-size: 22px;
+  }
+}
