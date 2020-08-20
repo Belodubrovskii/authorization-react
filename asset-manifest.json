@@ -1,14 +1,14 @@
 {
   "files": {
     "main.css": "/authorization-react/static/css/main.032ad5a4.chunk.css",
-    "main.js": "/authorization-react/static/js/main.bd4d96c8.chunk.js",
-    "main.js.map": "/authorization-react/static/js/main.bd4d96c8.chunk.js.map",
+    "main.js": "/authorization-react/static/js/main.7432c54e.chunk.js",
+    "main.js.map": "/authorization-react/static/js/main.7432c54e.chunk.js.map",
     "runtime-main.js": "/authorization-react/static/js/runtime-main.a18c6ce5.js",
     "runtime-main.js.map": "/authorization-react/static/js/runtime-main.a18c6ce5.js.map",
     "static/js/2.36a943fe.chunk.js": "/authorization-react/static/js/2.36a943fe.chunk.js",
     "static/js/2.36a943fe.chunk.js.map": "/authorization-react/static/js/2.36a943fe.chunk.js.map",
     "index.html": "/authorization-react/index.html",
-    "precache-manifest.fc29b9f0f5d90c0a1172add47062032c.js": "/authorization-react/precache-manifest.fc29b9f0f5d90c0a1172add47062032c.js",
+    "precache-manifest.42edb2f38d82c7ad5be25895a17ccdc7.js": "/authorization-react/precache-manifest.42edb2f38d82c7ad5be25895a17ccdc7.js",
     "service-worker.js": "/authorization-react/service-worker.js",
     "static/css/main.032ad5a4.chunk.css.map": "/authorization-react/static/css/main.032ad5a4.chunk.css.map",
     "static/js/2.36a943fe.chunk.js.LICENSE.txt": "/authorization-react/static/js/2.36a943fe.chunk.js.LICENSE.txt",
@@ -18,6 +18,6 @@
     "static/js/runtime-main.a18c6ce5.js",
     "static/js/2.36a943fe.chunk.js",
     "static/css/main.032ad5a4.chunk.css",
-    "static/js/main.bd4d96c8.chunk.js"
+    "static/js/main.7432c54e.chunk.js"
   ]
 }
